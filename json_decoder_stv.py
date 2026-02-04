@@ -65,7 +65,6 @@ def print_missing_branches(cov):
     print("uncovered branches")
     print("=" * 60)
     data = cov.get_data()
-    any_missing = False
     for filename in sorted(data.measured_files()):
         if "buggy_json" not in filename:
             continue

@@ -1,45 +1,16 @@
 """Implementation of JSONDecoder
 """
 import re
-
 from buggy_json import scanner_stv as scanner
 import time
-# try:
-#     from _json import scanstring as c_scanstring
-# except ImportError:
-c_scanstring = None
 
-__all__ = ['JSONDecoder', 'JSONDecodeError', 'ValidityBug', 'PerformanceBug', 'InvalidityBug', 'FunctionalBug', 'BoundaryBug'] 
+__all__ = ['JSONDecoder', 'JSONDecodeError', 'PerformanceBug', 'InvalidityBug', 'BoundaryBug'] 
 
 FLAGS = re.VERBOSE | re.MULTILINE | re.DOTALL
 
 NaN = float('nan')
 PosInf = float('inf')
 NegInf = float('-inf')
-
-class JSONHexLower(Exception):
-    """
-    When the HEX parsed is lower than the standard length(4)
-    """
-    pass
-
-class JSONHexHigher(Exception):
-    """
-    When the HEX parsed is greater than the standard length(4)
-    """
-    pass
-
-class ValidityBug(Exception):
-    """
-    Error thrown when ipstr passed is valid but crashes anyway.
-    """
-    pass
-
-class ReliabilityBug(Exception):
-    """
-    Error thrown when a bug in the program would potentially cause a crash. 
-    """
-    pass
 
 class InvalidityBug(Exception):
     """
@@ -190,7 +161,7 @@ def py_scanstring(s, end, strict=True,
 
 
 # Use speedup if available
-scanstring = c_scanstring or py_scanstring
+scanstring = py_scanstring
 
 WHITESPACE = re.compile(r'[ \t\n\r]*', FLAGS)
 WHITESPACE_STR = ' \t\n\r'

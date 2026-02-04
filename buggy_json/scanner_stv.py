@@ -1,10 +1,6 @@
 """JSON token scanner
 """
 import re
-# try:
-#     from _json import make_scanner as c_make_scanner
-# except ImportError:
-c_make_scanner = None
 
 __all__ = ['make_scanner']
 
@@ -70,4 +66,4 @@ def py_make_scanner(context):
 
     return scan_once
 
-make_scanner = c_make_scanner or py_make_scanner
+make_scanner = py_make_scanner
