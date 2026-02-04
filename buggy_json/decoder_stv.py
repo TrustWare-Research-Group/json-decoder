@@ -4,7 +4,7 @@ import re
 from buggy_json import scanner_stv as scanner
 import time
 
-__all__ = ['JSONDecoder', 'JSONDecodeError', 'PerformanceBug', 'InvalidityBug', 'BoundaryBug'] 
+__all__ = ['JSONDecoder', 'JSONDecodeError', 'PerformanceBug', 'InvalidityBug'] 
 
 FLAGS = re.VERBOSE | re.MULTILINE | re.DOTALL
 
@@ -15,18 +15,6 @@ NegInf = float('-inf')
 class InvalidityBug(Exception):
     """
     Error thrown when the code implemented doesn't match the goal of the program. 
-    """
-    pass
-
-class FunctionalBug(Exception):
-    """
-    Error thrown when the code implemented doesn't match the goal of the program. 
-    """
-    pass
-
-class BoundaryBug(Exception):
-    """
-    Error thrown when the ipstr passed of the invalid form.
     """
     pass
 
